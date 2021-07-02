@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.angular.model.Testimonial;
 import com.example.angular.model.User;
 import com.example.angular.response.SuccessResponse;
 import com.example.angular.service.HomeService;
@@ -29,6 +30,12 @@ public class HomeController {
 	@PostMapping("/enroll")
 	public @ResponseBody ResponseEntity<SuccessResponse> enroll(@RequestBody User user){
 		SuccessResponse response = new SuccessResponse(homeService.enroll(user));
+		return new ResponseEntity<>(response, HttpStatus.OK);
+	}
+	
+	@PostMapping("/testimonial")
+	public @ResponseBody ResponseEntity<SuccessResponse> submitTestimonial(@RequestBody Testimonial testimonial){
+		SuccessResponse response = new SuccessResponse(homeService.submitTestimonial(testimonial));
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 	
