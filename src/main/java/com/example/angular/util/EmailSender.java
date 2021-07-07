@@ -18,7 +18,7 @@ public class EmailSender {
 	public static void sendFromGMail(String from, String pass, String[] to, User user) {
         Properties props = System.getProperties();
         String host = "smtp.gmail.com";
-        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.starttls.enable", "false");
         props.put("mail.smtp.host", host);
         props.put("mail.smtp.user", from);
         props.put("mail.smtp.password", pass);
